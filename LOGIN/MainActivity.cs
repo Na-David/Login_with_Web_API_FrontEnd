@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using System;
 
 namespace LOGIN
 {
@@ -24,6 +25,20 @@ namespace LOGIN
             Password_Obj = FindViewById<EditText>(Resource.Id.Password);
             btn_Login = FindViewById<Button>(Resource.Id.btnLogin);
             btn_SignUp = FindViewById<Button>(Resource.Id.btnSignUp);
+
+            btn_Login.Click += Login_Function;
+        }
+
+        public void Login_Function(object sender, EventArgs e)
+        {
+            if (Username_Obj.Text == "1234" && Password_Obj.Text == "123")
+            {
+                Toast.MakeText(this, "Login successfully done!", ToastLength.Long).Show();
+                StartActivity(typeof(Dashboard));
+            } else
+            {
+                Toast.MakeText(this, "Wrong credentials found!", ToastLength.Long).Show();
+            }
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
