@@ -31,6 +31,8 @@ namespace LOGIN
 
         public void Login_Function(object sender, EventArgs e)
         {
+            DatabaseManager.FetchLogin(Username_Obj.Text);
+
             if (Username_Obj.Text == "1234" && Password_Obj.Text == "123")
             {
                 Toast.MakeText(this, "Login successfully done!", ToastLength.Long).Show();
